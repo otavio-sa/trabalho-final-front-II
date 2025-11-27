@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho final - Paint</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Paint Interativo em JavaScript</h1>
+    </header>
+
+    <main class="aplicacao-desenho">
+
+        <div class="caixa-ferramentas">
+
+            <div class="secao-ferramenta">
+                <h3>Controles</h3>
+                <button id="limpar" class="botao-controle">
+                    Limpar Tela
+                </button>
+                <button id="salvar" class="botao-controle">
+                    Salvar Imagem
+                </button>
+                <button id="preencher" class="botao-controle">
+                    Preencher Quadro
+                </button>
+            </div>
+
+            <div class="secao-ferramenta">
+                <h3>Cor da Linha</h3>
+                <div class="paleta-cores">
+                    <div class="amostra-cor cor-selecionada" data-cor="#000000" id="preto"></div>
+                    <div class="amostra-cor" data-cor="#FF0000" id="vermelho"></div>
+                    <div class="amostra-cor" data-cor="#0000FF" id="azul"></div>
+                    <div class="amostra-cor" data-cor="#008000" id="verde"></div>
+                    <div class="amostra-cor" data-cor="#FFFF00" id="amarelo"></div>
+                </div>
+                <label for="seletorCor">Escolher Cor:</label>
+                <input type="color" id="seletorCor" value="#ff8800">
+            </div>
+
+            <div class="secao-ferramenta">
+                <h3>Grossura do Pincel</h3>
+                <input type="range" id="tamanho-pincel-borracha" min="1" max="100" value="10">
+                <span id="valor-tamanho">10</span>
+            </div>
+
+            <div class="secao-ferramenta">
+                <h3>Ferramentas</h3>
+                <div class="icones-ferramenta">
+                    <button id="pincel" class="icone-ferramenta">
+                        <i class="fas fa-paint-brush"></i> Pincel
+                    </button>
+                    <button id="borracha" class="icone-ferramenta">
+                        <i class="fas fa-eraser"></i> Borracha
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-canvas">
+            <canvas id="canvas-desenho"></canvas>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
