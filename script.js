@@ -14,32 +14,32 @@ const escolheCor = document.getElementById("seletorCor");
 const ctx = canvas.getContext("2d"); // declaração do ctx do canvas
 const preenche = document.getElementById("preencher");
 
-canvas.width = 910;
-canvas.height = 486;
+canvas.width = 910;   // TAMANHO DO QUADRO DEFINIDO PELA JS - NÃO BUGAR COM CSS
+canvas.height = 486;  // TAMANHO DO QUADRO DEFINIDO PELA JS - NÃO BUGAR COM CSS
 
 let taDesenhando = false; //
 
 function desenhar(e) { // "e" serve para fazer anotação de eventos no javascript - passar uma funcao que vai receber um evento.
     if (!taDesenhando) return; // EXCLAMAÇÃO É NEGAÇÃO - nesse exemplo se não estiver desenhando.
 
-    ctx.lineCap = 'round';
-    ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.stroke();
+    ctx.lineCap = 'round';  // arredondado 
+    ctx.lineTo(e.offsetX, e.offsetY);   // mouse acompanhar 
+    ctx.stroke(); // linha visivel 
 }
 
 function comecaDesenho(e) {
-    taDesenhando = true;
+    taDesenhando = true;     // para iniciar o desenho ao clicar com o evento de clique 
     desenhar(e);
 }
 
 function pararDesenho(e) {
-    taDesenhando = false;
+    taDesenhando = false;  // para entender que parou de desenhar no evento de clique desenho ao clicar com o evento de clique
     ctx.beginPath();
 }
 
 canvas.addEventListener('mousedown', comecaDesenho);
 canvas.addEventListener('mousemove', desenhar);
-canvas.addEventListener('mouseout', pararDesenho);
+canvas.addEventListener('mouseout', pararDesenho);   // são eventos de movimentos do mouse 
 canvas.addEventListener('mouseup', pararDesenho);
 
 /* CONFIGURANDO A GROSSURA */
@@ -53,7 +53,7 @@ tamanhoPincelBorracha.oninput = () => {
     ctx.lineWidth = tamanhoPincelBorracha.value;
 }
 
-/* CONFIGURA P LIMPAR A TELA */
+/* CONFIGURANDO A FUNÇÃO P LIMPAR A TELA */
 
 function limparTela() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -96,11 +96,13 @@ function borracharr(e) {
 
 borracha.addEventListener('click', borracharr);
 
+
+// FUNCAO PARA SELECIONAR O PINCEL E DEFINIR PARA DETERMINAR A COR DO PINCEL, PUXANDO A corPincel
 function pincerr(e) {
     ctx.strokeStyle = corPincel;
-    pincel.classList.add('ferramenta-ativa');
+    pincel.classList.add('ferramenta-ativa'); // CSS
     borracha.classList.remove('ferramenta-ativa');
-    canvas.style.cursor = 'url("/pincel.png"), auto';
+    canvas.style.cursor = 'url("/pincel.png"), auto'; // cursor definido 
 }
 
 pincel.addEventListener('click', pincerr);
@@ -121,20 +123,21 @@ function black(e) {
 
 }
 
+//ABAIXO FUNÇÃO PARA SELECIONAR 
+
 function red(e) {
     ctx.strokeStyle = "red";
-    corPincel = ctx.strokeStyle;
-    console.log("foi clicado");
+    corPincel = ctx.strokeStyle;  // COMANDO PARA DEFINIR COR DO PINCEL COMO COR ATUAL, PARA EVITAR QUE A BORRACHA POR EXEMPLO, SAIA COLORIDA
+    console.log("foi clicado"); 
     preto.classList.remove('cor-selecionada');
     vermelho.classList.add('cor-selecionada');
-    azul.classList.remove('cor-selecionada');
+    azul.classList.remove('cor-selecionada');   // REMOVE E ADS SERVEM PRA MANTER OU REMOVER AS BORDAS DE SELEÇÃO
     verde.classList.remove('cor-selecionada');
     amarelo.classList.remove('cor-selecionada');
-    corEscolhida = ctx.strokeStyle;
-    pincel.classList.add('ferramenta-ativa');
-    borracha.classList.remove('ferramenta-ativa');
+    corEscolhida = ctx.strokeStyle;   // para escolher uma cor pelo seletor, barra de cores 
+    pincel.classList.add('ferramenta-ativa');  // para deixar como ferramenta ativa caso eu clique na cor, p quando selecionar a cor, ir diretamente pro pincel e nao pra borracha (rever)
+    borracha.classList.remove('ferramenta-ativa'); // DESATIVA A BORRACHA ao ativar outra ferramenta
     canvas.style.cursor = 'url("/pincel.png"), auto';
-
 }
 
 function blue(e) {
