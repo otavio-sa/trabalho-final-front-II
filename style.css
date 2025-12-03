@@ -7,8 +7,7 @@
 }
 
 body {
-    background-color: #f4f4f9; /* Fundo claro */
-    color: #333;
+    background-color: #f4f4f9;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +47,6 @@ header {
     display: flex; 
     flex-grow: 1;
 }
-
 
 .caixa-ferramentas {
     width: 250px;
@@ -100,16 +98,14 @@ header {
     transition: transform 0.1s, border-color 0.2s;
 }
 
-
 #preto { background-color: #000000; }
 .amostra-cor:nth-child(2) { background-color: #FF0000; }
 .amostra-cor:nth-child(3) { background-color: #0000FF; } 
 .amostra-cor:nth-child(4) { background-color: #008000; } 
 .amostra-cor:nth-child(5) { background-color: #FFFF00; } 
 
-/* Feedback visual: Cor selecionada */
 .cor-selecionada {
-    border-color: #3498db; /* Borda azul para a cor ativa */
+    border-color: #3498db;
     transform: scale(1.1);
 }
 
@@ -122,7 +118,6 @@ header {
     cursor: pointer;
 }
 
-/* 5. Estilo do Slider de Tamanho */
 #tamanho-pincel-borracha {
     width: 100%;
     margin: 10px 0;
@@ -135,7 +130,6 @@ header {
     color: #3498db;
 }
 
-/* 6. Ícones de Ferramenta (Pincel/Borracha) */
 .icones-ferramenta {
     display: flex;
     gap: 10px;
@@ -154,7 +148,6 @@ header {
     background-color: #e0e0e0;
 }
 
-/* Feedback visual: Ferramenta ativa */
 .ferramenta-ativa {
     background-color: #3498db;
     color: white;
